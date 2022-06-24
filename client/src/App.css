@@ -4,22 +4,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Public+Sans:wght@300;400;700&display=swap');
 
-.App {
-  text-align: center;
-  padding: 4rem 0;
-}
-
-* >* {
-  font-family: 'Poppins',
-    sans-serif;;
-  margin: 0;
-  padding: 0;
-}
-
 :root {
   --color-yellow: #f9c851;
   --color-purple: #9d4edd;
 }
+
+*>* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  padding: 4em 0;
+}
+
 
 .bg-yellow{
   background-color: var(--color-yellow);
@@ -27,4 +27,13 @@
 
 bg-purple {
   background-color: var(--color-purple);
+}
+
+.chart .title {
+  position: absolute;
+  left:0;
+  right: 0;
+  top: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
