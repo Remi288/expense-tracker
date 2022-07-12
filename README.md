@@ -2,6 +2,8 @@
 
 > Expense tracker application to track expenses
 
+<img width="1440" alt="Screenshot 2022-07-12 at 14 41 12" src="https://user-images.githubusercontent.com/56796429/178504616-7f5c0951-855a-4f75-969a-fe1999b8c93f.png">
+
 
 
 ## Built With
