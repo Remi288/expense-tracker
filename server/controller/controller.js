@@ -4,8 +4,8 @@ const model = require("../models/model");
 
 async function create_Categories(req, res) {
   const Create = model.Categories({
-    type: "Savings",
-    color: "#FCBE44",
+    type: "investment",
+    color: "#FCD12A",
   });
 
   await Create.save(function (err) {

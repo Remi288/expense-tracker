@@ -1,27 +1,27 @@
 import React from 'react'
+import { useGetCategoriesQuery, useGetLabelsQuery } from '../store/expenseApi';
+import { getLabels } from '../utility/helper';
 
-const obj = [
-  {
-    type: "Saving",
-    value: 45,
-    color: "#f9c851",
-  },
-  {
-    type: "Investment",
-    value: 55,
-    color: "#f9c851",
-  },
-  {
-    type: "Loan",
-    value: 25,
-    color: "#f9c851",
-  },
-];
 
 function Label() {
+  const { data, isError, isFetching, isSuccess } = useGetLabelsQuery();
+  let Transaction;
+
+  if (isFetching) {
+    Transaction = <div>Loading...</div>;
+  } else if(isSuccess){
+    console.log(getLabels(data, 'type'));
+    Transaction = getLabels(data, 'type').map((item, index) => (
+      <LabelComponent key={index} data={item}></LabelComponent>
+    ));
+  } else if(isError){
+    Transaction = <div>Error</div>
+  }
+
+  console.log(isFetching)
   return (
     <>
-        {obj.map((item, index) => <LabelComponent key={index} data={item}></LabelComponent>)}
+        {Transaction}
     </>
   )
 }
@@ -37,7 +37,7 @@ function LabelComponent({ data }) {
         ></div>
         <h3 className="text-md">{data.type}</h3>
       </div>
-      <h3 className='font-bold'>{data.value??0}%</h3>
+      <h3 className='font-bold'>{Math.round(data.percent)??0}%</h3>
     </div>
   );
 }
